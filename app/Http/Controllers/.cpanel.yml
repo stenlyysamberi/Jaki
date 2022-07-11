@@ -1,0 +1,9 @@
+---
+ 
+deployment:
+ 
+ tasks:
+ 
+ - export DEPLOYPATH=/home/yadululy/jaki
+ 
+ - /usr/bin/rsync -Paz * $DEPLOYPATH --delete
