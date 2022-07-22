@@ -6,6 +6,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\SaldoController;
 use App\Http\Controllers\TiketOlaragaController;
 use App\Http\Controllers\TokenController;
+use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\VenueController;
 use Illuminate\Http\Request;
 use App\ModelDaftar;
@@ -79,6 +80,13 @@ Route::delete('/news/{id}',[NewsController::class,'delete']);
 
 // venue
 Route::post('/venue',[VenueController::class,'store']);
+Route::put('/venue',[VenueController::class,'update']);
+Route::get('/venue',[VenueController::class,'index']);
+Route::delete('/venue/{id}',[VenueController::class,'delete']);
+// 
+
+// venue
+Route::get('/transaksi',[TransaksiController::class,'transaki']);
 Route::put('/venue',[VenueController::class,'update']);
 Route::get('/venue',[VenueController::class,'index']);
 Route::delete('/venue/{id}',[VenueController::class,'delete']);

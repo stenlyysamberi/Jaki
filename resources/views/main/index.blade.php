@@ -509,6 +509,10 @@
                                         <li>
                                             <a href="venue">Venue</a>
                                         </li>
+
+                                        <li>
+                                            <a href="transaksi">Transaksi</a>
+                                        </li>
                                         
                                     </ul>
                                 </div>
@@ -1299,6 +1303,7 @@
                 get_news();
                 recent_leads_users();
                 get_venue();
+                get_transaksi();
 
                 // window.setTimeout(function(){
                 //     $(".alert").fadeTo(200, 0).slideUp(200, function(){
@@ -1389,6 +1394,32 @@
                                             </div>\
                                         </div>\
                                     </div>');
+                        });
+                      }
+                  });
+              }
+
+              function get_transaksi(){
+                var no = 1;
+                  $.ajax({
+                      type:"GET",
+                      url: "/api/transaksi",
+                      dataType: "json",
+                      success: function (response) {
+                           console.log(response.transaksi);
+                        $.each(response.transaksi, function (key, item) { 
+
+                            $('#transaksi').append('<tr><td>'+ no++ +'</td>\
+                                                <td> <a href="javascript:void(0);" class="text-body font-weight-semibold">'+item.title+'</a></td>\
+                                                <td>'+item.created_at+'</td>\
+                                                <td>'+item.nama+'</td>\
+                                                <td>'+item.bayars+'</td>\
+                                                <td>'+item.total+'</td>\
+                                                <td>\
+                                                <a href="javascript:void(0);" class="action-icon"> <i class="mdi mdi-square-edit-outline"></i></a>\
+                                                        <button value="'+item.id_user+'" class="action-icon border-0 delete_user"> <i class="mdi mdi-delete"></i></button>\
+                                                    </td>\
+                                            </tr>');
                         });
                       }
                   });

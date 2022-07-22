@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DaftarController;
+use App\Http\Controllers\TransaksiController;
 use App\Token;
 use Illuminate\Support\Facades\Route;
 use Twilio\TwiML\Voice\Room;
@@ -93,5 +94,10 @@ Route::get('saldo',function(){
         "title3" => 'Top Up'
     ]);
 })->middleware('auth');
+
+
+
+
+Route::get('transaksi',[TransaksiController::class,'index'])->middleware('auth');
 
 
